@@ -11,7 +11,7 @@ pipeline {
         }
         stage('DockerHub Push'){
             steps{
-                withCredentials([string(credentialsId: 'krishna1952', variable: 'DOCKER_HUB_CREDENTIALS')]) {
+                withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
                     sh "docker login -u krishna1952 -p ${DOCKER_HUB_CREDENTIALS}"
                     sh "docker push krishna1952/nodeapp:${DOCKER_TAG}"
                 }
